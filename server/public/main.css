@@ -34,3 +34,10 @@ table {
     height: 55px;
     margin: 0px;
   }
+
+  #pawn {
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
+  }
