@@ -15,7 +15,7 @@ table {
     border-collapse: collapse;
   }
 
-  td {
+  #tableCell {
     width: 5vw;
     height: 5vw;
     text-align: center;
@@ -33,4 +33,11 @@ table {
     width: 40px;
     height: 55px;
     margin: 0px;
+  }
+
+  #pawn {
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
   }
