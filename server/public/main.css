@@ -41,3 +41,42 @@ table {
     margin: 0px;
 
   }
+
+  #king {
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
+  }
+
+  #rook {
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
+  }
+
+  #knight {
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
+  }
+
+  #bishop {
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
+  }
+
+
+  #queen{
+    width: 30px;
+    height: 40px;
+    margin: 0px;
+
+
+  }
+
+

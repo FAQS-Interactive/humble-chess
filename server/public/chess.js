@@ -54,7 +54,7 @@ boardInit()
 
 const tableCells = document.getElementsByTagName('td')
 const tableArr = [...tableCells]
-console.log(tableArr)
+// console.log(tableArr)
 
 function pawn() {
   let img = document.createElement('img')
@@ -69,7 +69,58 @@ function pawn() {
   // console.log(tableArr)
 }
 
-pawn()
+function king() {
+  let img = document.createElement('img')
+  img.src = './images/king.png'
+  img.alt = 'king piece'
+  img.id = 'king'
 
+  tableArr[60].appendChild(img)
+}
+
+function queen() {
+  let img = document.createElement('img')
+  img.src = './images/queen.png'
+  img.alt = 'queen piece'
+  img.id = 'queen'
+
+  tableArr[59].appendChild(img)
+}
+
+function rook() {
+  let img = document.createElement('img')
+  img.src = './images/rook.png'
+  img.alt = 'rook piece'
+  img.id = 'rook'
+
+  tableArr[56].appendChild(img.cloneNode(true))
+  tableArr[63].appendChild(img.cloneNode(true))
+}
+
+function knight() {
+  let img = document.createElement('img')
+  img.src = './images/knight.png'
+  img.alt = 'knight piece'
+  img.id = 'knight'
+
+  tableArr[57].appendChild(img.cloneNode(true))
+  tableArr[62].appendChild(img.cloneNode(true))
+}
+
+function bishop() {
+  let img = document.createElement('img')
+  img.src = './images/bishop.png'
+  img.alt = 'bishop piece'
+  img.id = 'bishop'
+
+  tableArr[58].appendChild(img.cloneNode(true))
+  tableArr[61].appendChild(img.cloneNode(true))
+}
+pawn()
+king()
+queen()
+rook()
+knight()
+bishop()
 const occupiedCells = tableArr.filter((x) => x.innerHTML)
 // console.log(occupiedCells)
