@@ -20,7 +20,7 @@ function pawn() {
 pawn()
 
 const occupiedCells = tableArr.filter(
-  (x) =>
+  (x, i) =>
     // let cells = document.getElementsByTagName('td')
     x.innerHTML
 )
