@@ -12,25 +12,24 @@ table {
     margin-left: center;
     margin: 0 auto;
     border-spacing: 0;
+    border: 2px solid black;
     border-collapse: collapse;
   }
 
-  td {
+  #tableCell {
     width: 5vw;
     height: 5vw;
     text-align: center;
     font-size: 300%;
-    border: black solid 3px;
-    color: black;
     padding: 0px;
   }
 
   .black{
-    background-color:black;
+    background-color: saddlebrown;
   }
 
-  #piece {
-    width: 40px;
-    height: 55px;
+  .chessPiece {
+    width: 30px;
+    height: 40px;
     margin: 0px;
   }
