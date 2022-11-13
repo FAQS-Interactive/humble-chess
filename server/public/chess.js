@@ -27,10 +27,8 @@ function boardInit() {
     console.log('cells: ', tableArr[z])
     let cell = tableArr[z]
     let checkForInt = z / 2
-    // console.log(checkForInt)
 
     if (z >= 0 && z < 8 && Number.isInteger(checkForInt) === false) {
-      // console.log('hit')
       cell.className = 'black'
     } else if (z >= 8 && z < 16 && Number.isInteger(checkForInt) === true) {
       cell.className = 'black'
@@ -51,76 +49,152 @@ function boardInit() {
 }
 
 boardInit()
-
 const tableCells = document.getElementsByTagName('td')
 const tableArr = [...tableCells]
-// console.log(tableArr)
 
-function pawn() {
+function whitePawn() {
   let img = document.createElement('img')
-  img.src = './images/pawn.png'
+  img.src = './images/wpawn.png'
   img.alt = 'pawn piece'
-  img.id = 'pawn'
+  img.id = 'wpawn'
+  img.className = 'chessPiece'
 
   tableArr.map((x, i) =>
     i > 47 && i < 56 ? x.appendChild(img.cloneNode(true)) : null
   )
-
-  // console.log(tableArr)
 }
 
-function king() {
+function whiteKing() {
   let img = document.createElement('img')
-  img.src = './images/king.png'
+  img.src = './images/wking.png'
   img.alt = 'king piece'
-  img.id = 'king'
+  img.id = 'wking'
+  img.className = 'chessPiece'
 
   tableArr[60].appendChild(img)
 }
 
-function queen() {
+function whiteQueen() {
   let img = document.createElement('img')
-  img.src = './images/queen.png'
+  img.src = './images/wqueen.png'
   img.alt = 'queen piece'
-  img.id = 'queen'
+  img.id = 'wqueen'
+  img.className = 'chessPiece'
 
   tableArr[59].appendChild(img)
 }
 
-function rook() {
+function whiteRook() {
   let img = document.createElement('img')
-  img.src = './images/rook.png'
+  img.src = './images/wrook.png'
   img.alt = 'rook piece'
-  img.id = 'rook'
+  img.id = 'wrook'
+  img.className = 'chessPiece'
 
   tableArr[56].appendChild(img.cloneNode(true))
   tableArr[63].appendChild(img.cloneNode(true))
 }
 
-function knight() {
+function whiteKnight() {
   let img = document.createElement('img')
-  img.src = './images/knight.png'
+  img.src = './images/wknight.png'
   img.alt = 'knight piece'
-  img.id = 'knight'
+  img.id = 'wknight'
+  img.className = 'chessPiece'
 
   tableArr[57].appendChild(img.cloneNode(true))
   tableArr[62].appendChild(img.cloneNode(true))
 }
 
-function bishop() {
+function whiteBishop() {
   let img = document.createElement('img')
-  img.src = './images/bishop.png'
+  img.src = './images/wbishop.png'
   img.alt = 'bishop piece'
-  img.id = 'bishop'
+  img.id = 'wbishop'
+  img.className = 'chessPiece'
 
   tableArr[58].appendChild(img.cloneNode(true))
   tableArr[61].appendChild(img.cloneNode(true))
 }
-pawn()
-king()
-queen()
-rook()
-knight()
-bishop()
+
+function blackPawn() {
+  let img = document.createElement('img')
+  img.src = './images/bpawn.png'
+  img.alt = 'pawn piece'
+  img.id = 'bpawn'
+  img.className = 'chessPiece'
+
+  tableArr.map((x, i) =>
+    i > 7 && i < 16 ? x.appendChild(img.cloneNode(true)) : null
+  )
+}
+
+function blackKing() {
+  let img = document.createElement('img')
+  img.src = './images/bking.png'
+  img.alt = 'king piece'
+  img.id = 'bking'
+  img.className = 'chessPiece'
+
+  tableArr[4].appendChild(img)
+}
+
+function blackQueen() {
+  let img = document.createElement('img')
+  img.src = './images/bqueen.png'
+  img.alt = 'queen piece'
+  img.id = 'bqueen'
+  img.className = 'chessPiece'
+
+  tableArr[3].appendChild(img)
+}
+
+function blackRook() {
+  let img = document.createElement('img')
+  img.src = './images/brook.png'
+  img.alt = 'rook piece'
+  img.id = 'brook'
+  img.className = 'chessPiece'
+
+  tableArr[0].appendChild(img.cloneNode(true))
+  tableArr[7].appendChild(img.cloneNode(true))
+}
+
+function blackKnight() {
+  let img = document.createElement('img')
+  img.src = './images/bknight.png'
+  img.alt = 'knight piece'
+  img.id = 'bknight'
+  img.className = 'chessPiece'
+
+  tableArr[1].appendChild(img.cloneNode(true))
+  tableArr[6].appendChild(img.cloneNode(true))
+}
+
+function blackBishop() {
+  let img = document.createElement('img')
+  img.src = './images/bbishop.png'
+  img.alt = 'bishop piece'
+  img.id = 'bbishop'
+  img.className = 'chessPiece'
+
+  tableArr[2].appendChild(img.cloneNode(true))
+  tableArr[5].appendChild(img.cloneNode(true))
+}
+
+whitePawn()
+whiteKing()
+whiteQueen()
+whiteRook()
+whiteKnight()
+whiteBishop()
+
+blackPawn()
+blackKing()
+blackQueen()
+blackRook()
+blackKnight()
+blackBishop()
+
 const occupiedCells = tableArr.filter((x) => x.innerHTML)
-// console.log(occupiedCells)
+console.log(occupiedCells)
