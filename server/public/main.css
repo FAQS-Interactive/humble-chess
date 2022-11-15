@@ -16,7 +16,7 @@ table {
     border-collapse: collapse;
   }
 
-  #tableCell {
+  .tableCell {
     width: 5vw;
     height: 5vw;
     text-align: center;
@@ -24,9 +24,7 @@ table {
     padding: 0px;
   }
 
-  .black{
-    background-color: saddlebrown;
-  }
+ 
 
   .chessPiece {
     width: 30px;
