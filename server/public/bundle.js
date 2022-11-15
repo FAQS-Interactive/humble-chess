@@ -1,3 +1,4 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 // const pawn = require('./modules/whitePawn')
 // console.log(whitePawn)
 
@@ -204,3 +205,27 @@ blackBishop()
 
 const occupiedCells = tableArr.filter((x) => x.innerHTML)
 console.log(occupiedCells)
+
+},{}],2:[function(require,module,exports){
+const tableCells = document.getElementsByTagName('td')
+const tableArr = [...tableCells]
+
+function whitePawn() {
+  let img = document.createElement('img')
+  img.src = './images/wpawn.png'
+  img.alt = 'pawn piece'
+  img.id = 'wpawn'
+  img.className = 'chessPiece'
+
+  tableArr.map((x, i) =>
+    i > 47 && i < 56 ? x.appendChild(img.cloneNode(true)) : null
+  )
+}
+
+whitePawn()
+
+// module.exports = {
+//   whitePawn,
+// }
+
+},{}]},{},[1,2]);
