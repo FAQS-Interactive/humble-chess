@@ -48,6 +48,8 @@ function boardInit() {
       cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 56 && z < 64 && Number.isInteger(checkForInt) === true) {
       cell.style.backgroundColor = 'saddlebrown'
+    } else {
+      cell.style.backgroundColor = 'bisque'
     }
   }
 }
