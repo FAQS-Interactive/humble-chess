@@ -1,3 +1,5 @@
+import pawn from '../pawn'
+
 function boardInit() {
   const table = document.createElement('table')
   const tableBody = document.createElement('tbody')
@@ -7,7 +9,7 @@ function boardInit() {
 
     for (let j = 0; j < 8; j++) {
       const tableCell = document.createElement('td')
-      tableCell.id = 'tableCell'
+      tableCell.className = 'tableCell'
 
       const cellText = document.createTextNode('')
       tableCell.appendChild(cellText)
@@ -23,27 +25,31 @@ function boardInit() {
 
   const tableCells = document.getElementsByTagName('td')
   const tableArr = [...tableCells]
+
+  tableArr.map((x, i) => (x.id = i))
+
   for (let z = 0; z < tableArr.length; z++) {
-    console.log('cells: ', tableArr[z])
     let cell = tableArr[z]
     let checkForInt = z / 2
 
     if (z >= 0 && z < 8 && Number.isInteger(checkForInt) === false) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 8 && z < 16 && Number.isInteger(checkForInt) === true) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 16 && z < 24 && Number.isInteger(checkForInt) === false) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 24 && z < 32 && Number.isInteger(checkForInt) === true) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 32 && z < 40 && Number.isInteger(checkForInt) === false) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 40 && z < 48 && Number.isInteger(checkForInt) === true) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 48 && z < 56 && Number.isInteger(checkForInt) === false) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
     } else if (z >= 56 && z < 64 && Number.isInteger(checkForInt) === true) {
-      cell.className = 'black'
+      cell.style.backgroundColor = 'saddlebrown'
+    } else {
+      cell.style.backgroundColor = 'bisque'
     }
   }
 }
@@ -51,13 +57,12 @@ function boardInit() {
 boardInit()
 const tableCells = document.getElementsByTagName('td')
 const tableArr = [...tableCells]
-
 function whitePawn() {
   let img = document.createElement('img')
   img.src = './images/wpawn.png'
   img.alt = 'pawn piece'
-  img.id = 'wpawn'
-  img.className = 'chessPiece'
+  // img.id = 'wpawn'
+  img.className = 'chessPiece whitePawn'
 
   tableArr.map((x, i) =>
     i > 47 && i < 56 ? x.appendChild(img.cloneNode(true)) : null
@@ -196,5 +201,6 @@ blackRook()
 blackKnight()
 blackBishop()
 
+pawn()
+
 const occupiedCells = tableArr.filter((x) => x.innerHTML)
-console.log(occupiedCells)
