@@ -69,8 +69,6 @@ function whitePawn() {
   )
 }
 
-pawn()
-
 function whiteKing() {
   let img = document.createElement('img')
   img.src = './images/wking.png'
@@ -202,5 +200,7 @@ blackQueen()
 blackRook()
 blackKnight()
 blackBishop()
+
+pawn()
 
 const occupiedCells = tableArr.filter((x) => x.innerHTML)
