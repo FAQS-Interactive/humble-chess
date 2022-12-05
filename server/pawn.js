@@ -7,9 +7,6 @@ export default function pawn() {
     x.id = i
   })
 
-  // wPawnArr.onclick = handleClick
-
-  // const currentCell = wPawnArr.parentElement
   const allCells = document.getElementsByTagName('td')
   const allCellsArr = [...allCells]
 
@@ -19,42 +16,46 @@ export default function pawn() {
     e.preventDefault()
 
     let clickedPawn = { active: false, hasMoved: false, element: e.target }
-    // console.log(e.target)
+
     const currentCell = wPawnArr.find(
       (x) => x.id === clickedPawn.element.id
     ).parentElement
-    // console.log(currentCell)
 
-    // const index = allCellsArr.find((x) => x.id === currentCell.id)
     const freeCellOne = allCellsArr[currentCell.id - 8]
     const freeCellTwo = allCellsArr[currentCell.id - 16]
+    // console.log()
+
+    // console.log(freeCellOne)
+    // console.log(freeCellTwo)
 
     currentCell.style.border = '2px solid red'
     clickedPawn.active = true
 
-    if (clickedPawn.active === true && clickedPawn.hasMoved === false) {
+    if (clickedPawn.hasMoved === true) {
+      freeCellOne.style.border = '2px solid green'
+      freeCellTwo.style.border = null
+      freeCellOne.onclick = handleMoveOne
+      console.log('hit')
+    } else if (clickedPawn.hasMoved === false) {
       freeCellOne.style.border = '2px solid green'
       freeCellTwo.style.border = '2px solid green'
 
       freeCellOne.onclick = handleMoveOne
       freeCellTwo.onclick = handleMoveTwo
-    } else if (clickedPawn.active === true && clickedPawn.hasMoved === true) {
-      freeCellOne.style.border = '2px solid green'
-      freeCellOne.onclick = handleMoveOne
     }
 
     function handleMoveOne() {
-      console.log(e.target)
-
+      clickedPawn.active = false
+      clickedPawn.hasMoved = true
       currentCell.innerHTML = null
       freeCellOne.appendChild(clickedPawn.element)
 
       currentCell.style.border = null
       freeCellOne.style.border = null
       freeCellTwo.style.border = null
+      console.log('hit')
 
-      clickedPawn.active = false
-      clickedPawn.hasMoved = true
+      // console.log(clickedPawn)
     }
     function handleMoveTwo() {
       currentCell.innerHTML = null
