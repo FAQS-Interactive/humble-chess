@@ -1,43 +1,75 @@
 export default function pawn() {
-  const wPawn = document.getElementById('wpawn')
-  const currentCell = wPawn.parentElement
+  const wPawn = document.getElementsByClassName('whitePawn')
+  const wPawnArr = [...wPawn]
+
+  wPawnArr.map((x, i) => {
+    x.onclick = handleClick
+    x.id = i
+  })
+
+  // wPawnArr.onclick = handleClick
+
+  // const currentCell = wPawnArr.parentElement
   const allCells = document.getElementsByTagName('td')
   const allCellsArr = [...allCells]
-  let clickedPawn = { active: false, hasMoved: false, element: wPawn }
 
-  wPawn.onclick = handleClick
-  wPawn.onmouseover = handleHover
+  // wPawn.onmouseover = handleHover
 
-  function handleClick() {
+  function handleClick(e) {
+    e.preventDefault()
+
+    let clickedPawn = { active: false, hasMoved: false, element: e.target }
+    // console.log(e.target)
+    const currentCell = wPawnArr.find(
+      (x) => x.id === clickedPawn.element.id
+    ).parentElement
+    // console.log(currentCell)
+
+    // const index = allCellsArr.find((x) => x.id === currentCell.id)
+    const freeCellOne = allCellsArr[currentCell.id - 8]
+    const freeCellTwo = allCellsArr[currentCell.id - 16]
+
     currentCell.style.border = '2px solid red'
     clickedPawn.active = true
 
     if (clickedPawn.active === true && clickedPawn.hasMoved === false) {
-      const index = allCellsArr.find((x) => x.id === currentCell.id)
-      const freeCellOne = allCellsArr[index.id - 8]
-      const freeCellTwo = allCellsArr[index.id - 16]
       freeCellOne.style.border = '2px solid green'
       freeCellTwo.style.border = '2px solid green'
 
-      freeCellOne.onclick = handleMove
-      freeCellTwo.onclick = handleMove
+      freeCellOne.onclick = handleMoveOne
+      freeCellTwo.onclick = handleMoveTwo
+    } else if (clickedPawn.active === true && clickedPawn.hasMoved === true) {
+      freeCellOne.style.border = '2px solid green'
+      freeCellOne.onclick = handleMoveOne
+    }
+
+    function handleMoveOne() {
+      console.log(e.target)
+
+      currentCell.innerHTML = null
+      freeCellOne.appendChild(clickedPawn.element)
+
+      currentCell.style.border = null
+      freeCellOne.style.border = null
+      freeCellTwo.style.border = null
+
+      clickedPawn.active = false
+      clickedPawn.hasMoved = true
+    }
+    function handleMoveTwo() {
+      currentCell.innerHTML = null
+      freeCellTwo.appendChild(clickedPawn.element)
+
+      currentCell.style.border = null
+      freeCellOne.style.border = null
+      freeCellTwo.style.border = null
+
+      clickedPawn.active = false
+      clickedPawn.hasMoved = true
     }
   }
 
-  function handleHover() {
-    currentCell.style.backgroundColor = 'pink'
-  }
-
-  function handleMove() {
-    const index = allCellsArr.find((x) => x.id === currentCell.id)
-    const freeCellOne = allCellsArr[index.id - 8]
-    const freeCellTwo = allCellsArr[index.id - 16]
-
-    // if
-    // currentCell.innerHTML = null
-    // freeCellOne.appendChild(wPawn)
-
-    clickedPawn.active = false
-    clickedPawn.hasMoved = true
-  }
+  // function handleHover() {
+  //   currentCell.style.backgroundColor = 'pink'
+  // }
 }
